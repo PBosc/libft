@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
+/*   By: Pbosc <pbosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 19:25:46 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/09 18:34:24 by pibosc           ###   ########.fr       */
+/*   Updated: 2023/11/09 21:48:33 by Pbosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,22 +14,18 @@
 
 char	*ft_strdup(const char *s)
 {
-	int		len;
-	char	*dup;
+	char	*tmp;
 	int		i;
 
-	len = 0;
-	i = 0;
-	while (s[len])
-		len++;
-	dup = malloc(len);
-	if (!dup)
+	tmp = (char *)malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (tmp == NULL)
 		return (NULL);
+	i = 0;
 	while (s[i])
 	{
-		dup[i] = s[i];
-		i++;
+		tmp[i] = s[i];
+		++i;
 	}
-	dup[i] = 0;
-	return (dup);
+	tmp[i] = '\0';
+	return (tmp);
 }
