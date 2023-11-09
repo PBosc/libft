@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
+/*   By: Pbosc <pbosc@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/08 18:37:07 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/08 19:17:28 by pibosc           ###   ########.fr       */
+/*   Updated: 2023/11/09 13:01:47 by Pbosc            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
+#include "libft.h"
 
 int	ft_atoi(const char *nptr)
 {
