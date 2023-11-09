@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Pbosc <pbosc@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:04:20 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/09 13:03:48 by Pbosc            ###   ########.fr       */
+/*   Updated: 2023/11/09 19:28:59 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ char	*ft_strrchr(const char *s, int c)
 	i = 0;
 	while (s[i])
 		i++;
-	while (i > 0 && s[i] != c)
+	while (i > 0 && s[i] != c % 256)
 		i--;
-	if (s[i] == c)
-		return (s + i);
+	if (s[i] == c % 256)
+		return ((char *)(s + i));
 	return (NULL);
 }

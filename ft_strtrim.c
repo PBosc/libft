@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/11/09 18:24:58 by pibosc            #+#    #+#             */
+/*   Updated: 2023/11/09 18:24:58 by pibosc           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "libft.h"
 
@@ -14,7 +25,7 @@ static size_t	end(char const *s1, char const *set)
 	size_t	end;
 
 	end = ft_strlen(s1) - 1;
-	while (ft_strchr_chr(set, s1[end]))
+	while (ft_strchr_chr(s1[end],set))
 		end--;
 	return (end + 1);
 }
@@ -32,7 +43,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	len = end(s1, set);
 	while (s1[i] && len)
 	{
-		if (!ft_strchr_chr(set, s1[i++]))
+		if (!ft_strchr_chr(s1[i++], set))
 			break ;
 		len--;
 	}

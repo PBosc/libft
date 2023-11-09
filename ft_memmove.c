@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Pbosc <pbosc@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 16:27:57 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/09 13:03:07 by Pbosc            ###   ########.fr       */
+/*   Updated: 2023/11/09 18:32:34 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	if ((const void *) dest < src)
 	{
@@ -33,4 +33,5 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 			n--;
 		}
 	}
+	return (dest);
 }

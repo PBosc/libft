@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_strnstr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Pbosc <pbosc@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:29:22 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/09 13:03:44 by Pbosc            ###   ########.fr       */
+/*   Updated: 2023/11/09 19:54:43 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 char	*ft_strnstr(const char *big, const char *little, size_t len)
 {
-	int	i;
-	int	j;
-	int	l_len;
+	size_t	i;
+	size_t	j;
+	size_t	l_len;
 
 	i = 0;
 	l_len = 0;
@@ -28,7 +28,7 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		while (big[i + j] == little[j] && (i + j) < len && little[j])
 			j++;
 		if (j == l_len)
-			return (big + i);
+			return ((char *)(big + i));
 		i++;
 	}
 	return (NULL);

@@ -1,5 +1,7 @@
 NAME 	= libft.a
 
+CC 		= cc
+
 SRCS 	= 	ft_atoi.c		\
 			ft_bzero.c		\
 			ft_calloc.c		\
@@ -15,6 +17,7 @@ SRCS 	= 	ft_atoi.c		\
 			ft_memmove.c	\
 			ft_memset.c		\
 			ft_putchar_fd.c	\
+			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
 			ft_putstr_fd.c	\
 			ft_split.c		\
@@ -43,7 +46,7 @@ ${NAME} : 	${OBJS}
 		ar rc ${NAME} ${OBJS}
 
 .c.o 	:
-		gcc ${CFLAGS} -c $< -I.-o ${<:.c=.o}
+		${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
 all 	: 	${NAME}
 

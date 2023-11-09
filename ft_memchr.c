@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Pbosc <pbosc@student.42.fr>                +#+  +:+       +#+        */
+/*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:13:40 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/09 13:02:52 by Pbosc            ###   ########.fr       */
+/*   Updated: 2023/11/09 18:56:15 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void	*ft_memchr(const void *s, int c, size_t n)
 {
-	int	i;
+	size_t	i;
 
 	i = 0;
-	while (i < n && *(unsigned char *)(s + i) != c)
+	while (i < n && *(unsigned char *)(s + i) != (unsigned char)c)
 		i++;
-	if (*(unsigned char *)(s + i) == c)
-		return (s + i);
+	if (*(unsigned char *)(s + i) == (unsigned char)c && i < n)
+		return ((void *)(s + i));
 	return (NULL);
 }
