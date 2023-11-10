@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*    ft_lstadd_back.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 19:18:15 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/10 19:04:14 by pibosc           ###   ########.fr       */
+/*   Created: 2023/11/10 19:15:14 by pibosc            #+#    #+#             */
+/*   Updated: 2023/11/10 19:19:01 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	void	*result;
-
-	if (size > 0 && nmemb > ULLONG_MAX / size)
-		return (NULL);
-	result = malloc(nmemb * size);
-	if (result)
-		ft_bzero(result, nmemb * size);
-	return (result);
+	if (lst)
+	{
+		if (*lst)
+			ft_lstlast(*lst)->next = new;
+		else
+			*lst = new;
+	}
 }

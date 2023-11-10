@@ -1,25 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 19:18:15 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/10 19:04:14 by pibosc           ###   ########.fr       */
+/*   Created: 2023/11/10 19:24:15 by pibosc            #+#    #+#             */
+/*   Updated: 2023/11/10 19:27:12 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	void	*result;
+	t_list	*map;
+	t_list	*new;
 
-	if (size > 0 && nmemb > ULLONG_MAX / size)
+	if (!f || !del)
 		return (NULL);
-	result = malloc(nmemb * size);
-	if (result)
-		ft_bzero(result, nmemb * size);
-	return (result);
+	map = NULL;
+	while (lst)
+	{
+		new = ft_lstnew(f(lst->content));
+		if (!new)
+		{
+			while (map)
+			{
+				new = map->next;
+				del(map->content);
+				free(map);
+				map = new;
+			}
+			return (NULL);
+		}
+		ft_lstadd_back(&map, new);
+		lst = lst->next;
+	}
+	return (map);
 }

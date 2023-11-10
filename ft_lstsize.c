@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_calloc.c                                        :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/08 19:18:15 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/10 19:04:14 by pibosc           ###   ########.fr       */
+/*   Created: 2023/11/10 19:11:45 by pibosc            #+#    #+#             */
+/*   Updated: 2023/11/10 19:13:03 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_calloc(size_t nmemb, size_t size)
+int	ft_lstsize(t_list *lst)
 {
-	void	*result;
+	int		size;
 
-	if (size > 0 && nmemb > ULLONG_MAX / size)
-		return (NULL);
-	result = malloc(nmemb * size);
-	if (result)
-		ft_bzero(result, nmemb * size);
-	return (result);
+	size = 0;
+	while (lst)
+	{
+		size++;
+		lst = lst->next;
+	}
+	return (size);
 }
