@@ -6,29 +6,32 @@
 /*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 17:17:47 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/09 19:51:17 by pibosc           ###   ########.fr       */
+/*   Updated: 2023/11/12 16:46:17 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	ft_strlcat(char *dst, const char *src, size_t size)
+size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	size_t	dest_len;
+	size_t	len_dest;
+	size_t	len_src;
 	size_t	i;
 
-	dest_len = 0;
-	while (dst[dest_len] && dest_len < size)
-		dest_len++;
+	if ((!dst || !src) && !dstsize)
+		return (0);
+	len_dest = ft_strlen(dst);
+	len_src = ft_strlen(src);
 	i = 0;
-	while (i + dest_len + 1 < size && src[i])
+	if (len_dest > dstsize - 1)
+		return (dstsize + len_src);
+	if (dstsize == 0)
+		return (len_src);
+	while (i < dstsize - len_dest - 1 && src[i])
 	{
-		dst[i + dest_len] = src[i];
+		dst[len_dest + i] = src[i];
 		i++;
 	}
-	while (src[i])
-		i++;
-	if (size)
-		dst[i + dest_len] = 0;
-	return (dest_len + i);
+	dst[len_dest + i] = '\0';
+	return (len_dest + len_src);
 }

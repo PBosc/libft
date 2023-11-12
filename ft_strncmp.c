@@ -6,7 +6,7 @@
 /*   By: pibosc <pibosc@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 18:07:23 by pibosc            #+#    #+#             */
-/*   Updated: 2023/11/09 19:31:59 by pibosc           ###   ########.fr       */
+/*   Updated: 2023/11/12 16:27:23 by pibosc           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,10 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 	size_t	i;
 
 	i = 0;
-	while (s1[i] && s1[i] == s2[i] && i < n)
+	while ((unsigned char)s1[i]
+		&& (unsigned char)s1[i] == (unsigned char)s2[i] && i < n)
 		i++;
 	if (i < n)
-		return (s1[i] - s2[i]);
+		return ((unsigned char)s1[i] - (unsigned char)s2[i]);
 	return (0);
 }

@@ -25,7 +25,7 @@ static size_t	end(char const *s1, char const *set)
 	size_t	end;
 
 	end = ft_strlen(s1) - 1;
-	while (ft_strchr_chr(s1[end],set))
+	while (ft_strchr_chr(s1[end], set))
 		end--;
 	return (end + 1);
 }

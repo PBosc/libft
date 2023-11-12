@@ -67,7 +67,7 @@ bonus:		${BOBJS} ${OBJS}
 			ar rc -s ${NAME} ${OBJS} ${BOBJS}
 
 clean 	:
-		rm -rf ${OBJS}
+		rm -rf ${OBJS} ${BOBJS}
 
 fclean	: clean
 		rm -rf ${NAME}
