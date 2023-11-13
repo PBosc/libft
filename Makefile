@@ -66,6 +66,10 @@ all 	: 	${NAME}
 bonus:		${BOBJS} ${OBJS}
 			ar rc -s ${NAME} ${OBJS} ${BOBJS}
 
+so:
+	$(CC) -nostartfiles -fPIC $(CFLAGS) $(SRCS) $(BSRCS)
+	gcc -nostartfiles -shared -o libft.so $(OBJS) $(BOBJS)
+
 clean 	:
 		rm -rf ${OBJS} ${BOBJS}
 
